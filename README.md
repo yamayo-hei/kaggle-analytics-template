@@ -8,7 +8,7 @@ The discription of this competition is [here](https://www.kaggle.com/competition
     - 1 x NVIDIA Tesla A100
 
 # Data download
-Download data to ./data/ from https://www.kaggle.com/competitions/{competition}/data .
+Download data to ./input/ from https://www.kaggle.com/competitions/{competition}/data .
 
 # Environment
 
