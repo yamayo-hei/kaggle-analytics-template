@@ -19,27 +19,27 @@ docker-compose up --build
 # theme 1
 
 ## Feature Engineering
-Please run the following notebooks in th ./fe
-- fe001_xxx.ipynb
-- fe002_xxx.ipynb
-- fe003_xxx.ipynb
+Please run the following notebooks in th ./feature
+- feature001_xxx.ipynb
+- feature002_xxx.ipynb
+- feature003_xxx.ipynb
 
 ## Training
-Please run the following notebooks in th ./exp
-- ex001_xxx.ipynb
-- ex002_xxx.ipynb
-- ex003_xxx.ipynb
+Please run the following notebooks in th ./learn
+- learn001_xxx.ipynb
+- learn002_xxx.ipynb
+- learn003_xxx.ipynb
 
 # theme 2
 
 ## Feature Engineering
-Please run the following notebooks in th ./fe
-- fe001_xxx.ipynb
-- fe002_xxx.ipynb
-- fe003_xxx.ipynb
+Please run the following notebooks in th ./feature
+- feature001_xxx.ipynb
+- feature002_xxx.ipynb
+- feature003_xxx.ipynb
 
 ## Training
-Please run the following notebooks in th ./exp
-- ex001_xxx.ipynb
-- ex002_xxx.ipynb
-- ex003_xxx.ipynb
+Please run the following notebooks in th ./learn
+- learn001_xxx.ipynb
+- learn002_xxx.ipynb
+- learn003_xxx.ipynb
