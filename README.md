@@ -1,5 +1,5 @@
 # description
-The discription of this solution is available [here](https://www.kaggle.com/xxx).
+The discription of this competition is [here](https://www.kaggle.com/competitions/{competition}/overview).
 
 # Hardware
 - Google Cloud Platform
