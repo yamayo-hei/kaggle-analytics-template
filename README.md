@@ -12,6 +12,12 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 
 # Environment
 
+- change directory to docker
+```
+cd docker
+```
+- rename container name at docker-compose.yml
+- build
 ```
 docker-compose up --build
 ```
