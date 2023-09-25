@@ -1,5 +1,5 @@
 # Advance preparation
-1. create repository from this template repository
+1. create repository from this repository template 
 2. fix container_name at docker-compose.yml
 3. fix token at docker-compose.yml
 4. fix README.md(delete "Advance preparation" part)
