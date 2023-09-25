@@ -5,7 +5,7 @@ services:
       context: .
       shm_size: '32gb'
     shm_size: '32gb'
-    container_name: pfgp
+    container_name: {container_name}
     volumes:
       - ./:/tmp/working
     working_dir: /tmp/working
