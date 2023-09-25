@@ -1,3 +1,9 @@
+# Advance preparation
+- create repository from this template repository
+- fix container_name at docker-compose.yml
+- fix token at docker-compose.yml
+- fix README.md(delete "Advance preparation" part)
+
 # description
 The discription of this competition is [here](https://www.kaggle.com/competitions/{competition}/overview).
 
@@ -16,7 +22,6 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 ```
 cd docker
 ```
-- rename container name at docker-compose.yml
 - build
 ```
 docker-compose up --build
