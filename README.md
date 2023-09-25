@@ -16,29 +16,51 @@ The discription of this competition is [here](https://www.kaggle.com/competition
 # Data download
 Download data to ./input/ from https://www.kaggle.com/competitions/{competition}/data .
 
-# Environment
+# (first time only)Set up
 
 ## SSH Terminal on a browser
-1. (first time only) change root password
+1. change root password
    ```
    sudo passwd root
    ```
-2. (first time only) change timezone
+2. change timezone
    ```
    sudo timedatectl set-timezone Asia/Tokyo
    ```
-3. (first time only) apt update
+3. apt update
    ```
    sudo apt update
    sudo apt upgrade
    ```
-5. (first time only) git install
-   ```
-   sudo apt install git
-   ```
+5. SSH key
+   1. generate ssh key
+      ```
+      ssh-keygen
+      ```
+   2. copy below command result to github setting
+      ```
+      cat ~/.ssh/id_rsa.pub
+      ```
+6. git
+   1. install
+      ```
+      sudo apt install git
+      ```
+   2. clone
+      ```
+      git clone {clone_url}
+      ```
+   3. change directory to docker
+      ```
+      cd {repository_name}/docker
+      ```
+   4. docker build
+      ```
+      docker-compose up --build
+      ```
 
 ## Local
-1. (first time only) Init
+1. Init
    ```
    gcloud init
    ```
@@ -48,14 +70,6 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
    ```
 
 ## 
-- change directory to docker
-```
-cd docker
-```
-- build
-```
-docker-compose up --build
-```
 
 # theme 1
 
