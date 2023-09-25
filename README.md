@@ -18,6 +18,36 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 
 # Environment
 
+## SSH Terminal on a browser
+1. (first time only) change root password
+   ```
+   sudo passwd root
+   ```
+2. (first time only) change timezone
+   ```
+   sudo timedatectl set-timezone Asia/Tokyo
+   ```
+3. (first time only) apt update
+   ```
+   sudo apt update
+   sudo apt upgrade
+   ```
+5. (first time only) git install
+   ```
+   sudo apt install git
+   ```
+
+## Local
+1. (first time only) Init
+   ```
+   gcloud init
+   ```
+2. 
+   ```
+   gcloud compute ssh {instance_name} -- -N -f -L 8888:localhost:8888
+   ```
+
+## 
 - change directory to docker
 ```
 cd docker
