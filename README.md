@@ -41,7 +41,12 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
       ```
       cat ~/.ssh/id_rsa.pub
       ```
-6. git
+6. docker
+   1. install
+      ```
+      sudo apt -y install docker-compose
+      ```
+7. git
    1. install
       ```
       sudo apt install git
@@ -56,7 +61,7 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
       ```
    4. docker build
       ```
-      docker-compose up --build
+      sudo docker-compose up --build
       ```
 
 ## Local
