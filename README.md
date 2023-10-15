@@ -1,38 +1,73 @@
-# Advance preparation
-1. create repository from this repository template 
-2. fix container_name at docker-compose.yml
-3. fix token at docker-compose.yml
-4. fix README.md(delete "Advance preparation" part)
-
 # description
 The discription of this competition is [here](https://www.kaggle.com/competitions/{competition}/overview).
 
 # Hardware
 - Google Cloud Platform
-    - Debian 10.12
-    - a2-highgpu-1g (vCPU x 12, memory 85 GB)
-    - 1 x NVIDIA Tesla A100
+    - Ubuntu
+    - n1-standard-1 (default)
+
+# required applications
+## application list
+|  application  |  version  |
+| ----------- | ------- |
+|  gcloud SDK  |  >= 446.0.0  |
+|  terraform  |  >= v1.5.7  |
+
+## Make sure the required applications are installed
+   ```
+   gcloud --version
+   terraform --version
+   ```
 
 # Data download
 Download data to ./input/ from https://www.kaggle.com/competitions/{competition}/data .
 
 # (first time only)Set up
 
-## SSH Terminal on a browser
-1. change root password
+## Advance preparation
+1. create a git repository from this repository template
+2. clone to your local machine
+3. fix the following files
+|  File path  |  Fixes  |
+| ----------- | ------- |
+|  docker/docker-compose.yml  |  put a value in the `{container_name}`.  |
+|  docker/docker-compose.yml  |  fix token value.(default is _kaggle-token_)  |
+|  README.md  |  put a value in the `{competition}`.  |
+|  README.md  |  put a value in the `{clone_url}`.  |
+|  README.md  |  put a value in the `{repository_name}`.  |
+|  README.md  |  put a value in the `{instance_name}`.  |
+
+## set up GCP VM instance
+1. If not exists, create your GCP account.
+2. In GCP, create service account key and download private key(json file).
+3. open your terminal.
+4. change directory to ./iac/
+5. fix the following files.
+|  File path  |  Fixes  |
+| ----------- | ------- |
+|  iac/variable.tf  |  fix each variables.  |
+6. gcloud init
+   ```
+   gcloud init
+   ```
+7. execute terraform command
+   ```
+   terraform init
+   terraform plan
+   terraform apply
+   ```
+
+## set up jupyter server in VM instance
+1. open GCP
+https://console.cloud.google.com/
+
+2. Compute Engine > VM instance > `SSH`
+
+3. change root password
    ```
    sudo passwd root
    ```
-2. change timezone
-   ```
-   sudo timedatectl set-timezone Asia/Tokyo
-   ```
-3. apt update
-   ```
-   sudo apt update
-   sudo apt upgrade
-   ```
-5. SSH key
+4. generate SSH key
    1. generate ssh key
       ```
       ssh-keygen
@@ -41,40 +76,27 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
       ```
       cat ~/.ssh/id_rsa.pub
       ```
-6. docker
-   1. install
-      ```
-      sudo apt -y install docker-compose
-      ```
-7. git
-   1. install
-      ```
-      sudo apt install git
-      ```
-   2. clone
-      ```
-      git clone {clone_url}
-      ```
-   3. change directory to docker
+   3. register output to your git hub account.
+3. git clone
+   ```
+   git clone {clone_url}
+   ```
+4. docker build
+   1. change directory to docker
       ```
       cd {repository_name}/docker
       ```
-   4. docker build
+   2. docker build
       ```
       sudo docker-compose up --build
       ```
 
-## Local
-1. Init
+# (every time)Set up
+1. opne your local terminal.
+2. SSH port forwarding
    ```
-   gcloud init
+   gcloud compute ssh {instance_name} --tunnnel-through-iap -N -f -L 8888:localhost:8888
    ```
-2. 
-   ```
-   gcloud compute ssh {instance_name} -- -N -f -L 8888:localhost:8888
-   ```
-
-## 
 
 # theme 1
 

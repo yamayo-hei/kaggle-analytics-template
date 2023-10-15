@@ -18,3 +18,8 @@
 .virtual_documents
 #jupyter notebook
 .ipynb_checkpoints
+
+#terraform
+.terraform*
+terraform.tfstate*
+*.json
