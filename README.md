@@ -61,16 +61,16 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
    ```
 
 ## set up jupyter server in VM instance
-1. open GCP
-https://console.cloud.google.com/
+1. ssh connect
+   ```
+   gcloud compute ssh {instance_name} --tunnel-through-iap 
+   ```
 
-2. Compute Engine > VM instance > `SSH`
-
-3. change root password
+2. change root password
    ```
    sudo passwd root
    ```
-4. generate SSH key
+3. generate SSH key
    1. generate ssh key
       ```
       ssh-keygen
@@ -80,11 +80,11 @@ https://console.cloud.google.com/
       cat ~/.ssh/id_rsa.pub
       ```
    3. register output to your git hub account.
-3. git clone
+4. git clone
    ```
    git clone {clone_url}
    ```
-4. docker build
+5. docker build
    1. change directory to docker
       ```
       cd {repository_name}/docker
