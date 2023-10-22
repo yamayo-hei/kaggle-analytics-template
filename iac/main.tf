@@ -28,6 +28,13 @@ resource "google_compute_instance" "default" {
     }
   }
 
+  scheduling {
+    # 料金を抑えるためにプリエンプティブルにしておく
+    preemptible = true
+    # プリエンプティブルの場合は下のオプションが必須
+    automatic_restart = false
+  }
+
   # Install
   metadata_startup_script = <<EOF
 #!/bin/bash

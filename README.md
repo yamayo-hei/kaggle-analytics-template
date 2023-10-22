@@ -28,6 +28,7 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 1. create a git repository from this repository template
 2. clone to your local machine
 3. fix the following files
+
 |  File path  |  Fixes  |
 | ----------- | ------- |
 |  docker/docker-compose.yml  |  put a value in the `{container_name}`.  |
@@ -43,9 +44,11 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 3. open your terminal.
 4. change directory to ./iac/
 5. fix the following files.
+
 |  File path  |  Fixes  |
 | ----------- | ------- |
 |  iac/variable.tf  |  fix each variables.  |
+
 6. gcloud init
    ```
    gcloud init
@@ -95,7 +98,7 @@ https://console.cloud.google.com/
 1. opne your local terminal.
 2. SSH port forwarding
    ```
-   gcloud compute ssh {instance_name} --tunnnel-through-iap -N -f -L 8888:localhost:8888
+   gcloud compute ssh {instance_name} --tunnel-through-iap -N -f -L 8888:localhost:8888
    ```
 
 # theme 1
