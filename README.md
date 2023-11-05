@@ -37,6 +37,7 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 |  README.md  |  put a value in the `{clone_url}`.  |
 |  README.md  |  put a value in the `{repository_name}`.  |
 |  README.md  |  put a value in the `{instance_name}`.  |
+|  README.md  |  put a value in the `{zone}`.  |
 
 ## set up GCP VM instance
 1. If not exists, create your GCP account.
@@ -63,7 +64,7 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 ## set up jupyter server in VM instance
 1. ssh connect
    ```
-   gcloud compute ssh {instance_name} --tunnel-through-iap 
+   gcloud compute ssh {instance_name} --tunnel-through-iap --zone={zone}
    ```
 
 2. change root password
