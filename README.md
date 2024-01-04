@@ -31,7 +31,7 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 
 |  File path  |  Fixes  |
 | ----------- | ------- |
-|  docker/docker-compose.yml  |  put a value in the `{container_name}`.  |
+|  docker/docker-compose.yml  |  fix container name.(default is _kaggle_)  |
 |  docker/docker-compose.yml  |  fix token value.(default is _kaggle-token_)  |
 |  README.md  |  put a value in the `{competition}`.  |
 |  README.md  |  put a value in the `{clone_url}`.  |
