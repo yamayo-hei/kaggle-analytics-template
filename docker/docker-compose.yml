@@ -9,9 +9,15 @@ services:
     volumes:
       - ./:/tmp/working
     working_dir: /tmp/working
-    runtime: nvidia
     environment:
       - LD_LIBRARY_PATH=/usr/local/cuda/lib64
     ports:
       - 8888:8888
     command: jupyter lab --ip=0.0.0.0 --port 8888 --allow-root --NotebookApp.notebook_dir='/tmp/working' --no-browser --NotebookApp.token='kaggle-token'
+    deploy:
+        resources:
+            reservations:
+                devices:
+                    - driver: nvidia
+                      count: 1
+                      capabilities: [gpu]

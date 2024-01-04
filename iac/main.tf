@@ -11,6 +11,10 @@ resource "google_compute_instance" "default" {
   zone         = var.zone
   tags         = ["iap-ssh"]
 
+  guest_accelerator {
+    type = "nvidia-tesla-t4"
+    count = 1
+  }
   boot_disk {
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-2204-lts"
@@ -33,6 +37,8 @@ resource "google_compute_instance" "default" {
     preemptible = true
     # プリエンプティブルの場合は下のオプションが必須
     automatic_restart = false
+    # gpu使用する場合は設定必須
+    on_host_maintenance = "TERMINATE"
   }
 
   # Install
@@ -41,8 +47,30 @@ resource "google_compute_instance" "default" {
 sudo timedatectl set-timezone Asia/Tokyo
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get -y install docker-compose
 sudo apt-get install git
+# dockerインストール
+## 依存パッケージインストール
+sudo apt install \
+  apt-transport-https ca-certificates curl gnupg lsb-release
+## Dockerの公式GPGキーを追加
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+  sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+## Dockerリポジトリ登録
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+## Docker Engineのインストール
+sudo apt install docker-ce docker-ce-cli containerd.io
+# docker compose インストール
+## インストール先ディレクトリを作成
+sudo mkdir -p /usr/local/libexec/docker/cli-plugins
+cd /usr/local/libexec/docker/cli-plugins
+## リリースモジュールをダウンロードし、docker-composeという名前でインストール先に保存
+sudo curl -L https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-linux-x86_64 -o docker-compose
+## docker-composeを実行可能にする
+sudo chmod +x docker-compose
+# dockerへの権限付与
+sudo chmod 666 /var/run/docker.sock
 EOF
 }
 
