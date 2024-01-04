@@ -8,6 +8,11 @@ variable "credentials" {
   default = ""
 }
 
+# firewallに登録するアドレス
+variable "your_ip_address" {
+  default = "XXX.XXX.XXX.XXX/32"
+}
+
 variable "region" {
   default = "us-west1"
 }

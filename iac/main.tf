@@ -9,7 +9,7 @@ resource "google_compute_instance" "default" {
   name         = var.instance_name
   machine_type = var.machine_type
   zone         = var.zone
-  tags         = ["iap-ssh"]
+  tags         = ["iap-ssh", "jupyter"]
 
   guest_accelerator {
     type = "nvidia-tesla-t4"
@@ -104,4 +104,17 @@ resource "google_compute_firewall" "ssh" {
   priority      = 1000
   source_ranges = ["35.235.240.0/20"] # IAPのアドレス範囲
   target_tags   = ["iap-ssh"]
+}
+
+resource "google_compute_firewall" "allow_jupyter_port" {
+  name = "allow-jupyter-port"
+  allow {
+    ports    = ["8888"]
+    protocol = "tcp"
+  }
+  direction     = "INGRESS"
+  network       = google_compute_network.my_network.id
+  priority      = 1000
+  source_ranges = [var.your_ip_address] # グローバルIPアドレスをセット
+  target_tags   = ["jupyter"]
 }
