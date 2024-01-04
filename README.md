@@ -67,11 +67,7 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
    gcloud compute ssh {instance_name} --tunnel-through-iap --zone={zone}
    ```
 
-2. change root password
-   ```
-   sudo passwd root
-   ```
-3. generate SSH key
+2. generate SSH key
    1. generate ssh key
       ```
       ssh-keygen
@@ -81,18 +77,18 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
       cat ~/.ssh/id_rsa.pub
       ```
    3. register output to your git hub account.
-4. git clone
+3. git clone
    ```
    git clone {clone_url}
    ```
-5. docker build
+4. docker build
    1. change directory to docker
       ```
       cd {repository_name}/docker
       ```
    2. docker build
       ```
-      sudo docker-compose up --build
+      docker compose up --build
       ```
 
 # (every time)Set up
