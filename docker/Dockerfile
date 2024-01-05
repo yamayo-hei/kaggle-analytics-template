@@ -8,5 +8,4 @@ RUN conda install -y \
   nodejs
 
 #tqdm
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \
-  && jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
