@@ -1,31 +1,25 @@
-# description
+## description
 The discription of this competition is [here](https://www.kaggle.com/competitions/{competition}/overview).
 
-# Hardware
+## Hardware
 - Google Cloud Platform
-    - Ubuntu
-    - n1-standard-1 (default)
+    - OS: **Ubuntu**
+    - GPU(default): **nvidia t4**
+    - machine type(default): **n1-standard-1**
 
-# required applications
-## application list
-|  application  |  version  |
-| ----------- | ------- |
-|  gcloud SDK  |  >= 446.0.0  |
-|  terraform  |  >= v1.5.7  |
+## required applications
+|  application  |  version  |  confirmation command  |
+| ----------- | ------- | ------- |
+|  gcloud SDK  |  >= 446.0.0  | gcloud --version |
+|  terraform  |  >= v1.5.7  | terraform --version |
 
-## Make sure the required applications are installed
-   ```
-   gcloud --version
-   terraform --version
-   ```
+*************************************************************************************************************************
 
-# Data download
-Download data to ./input/ from https://www.kaggle.com/competitions/{competition}/data .
+# 1. Set up 
+**※This is only first time**
 
-# (first time only)Set up
-
-## Advance preparation
-1. create a git repository from this repository template
+## 1-1. Advance preparation
+1. create a git repository from this repository template ([> How to create repository from template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template))
 2. clone to your local machine
 3. fix the following files
 
@@ -39,64 +33,69 @@ Download data to ./input/ from https://www.kaggle.com/competitions/{competition}
 |  README.md  |  put a value in the `{instance_name}`.  |
 |  README.md  |  put a value in the `{zone}`.  |
 
-## set up GCP VM instance
+4. Push to remote
+
+## 1-2. Set up GCP VM Instance
 1. If not exists, create your GCP account.
-2. In GCP, create service account key and download private key(json file).
-3. open your terminal.
-4. change directory to ./iac/
-5. fix the following files.
+2. In GCP
+    - create service account key and download private key(json file).
+    - request the following quotas increase. (Approval takes about 1 hour)
+        - NVIDIA T4 GPUs
+        - GPUs (all regions)
+3. In your local terminal
+    - change directory to {repository_name}/iac/
+    - change each setting value in variable.tf
+    - execute following command
+       ```
+       gcloud init
+       terraform init
+       terraform plan
+       terraform apply
+       ```
+    - ssh connect
+       ```
+       gcloud compute ssh {instance_name} --tunnel-through-iap --zone={zone}
+       ```
 
-|  File path  |  Fixes  |
-| ----------- | ------- |
-|  iac/variable.tf  |  fix each variables.  |
-
-6. gcloud init
-   ```
-   gcloud init
-   ```
-7. execute terraform command
-   ```
-   terraform init
-   terraform plan
-   terraform apply
-   ```
-
-## set up jupyter server in VM instance
-1. ssh connect
-   ```
-   gcloud compute ssh {instance_name} --tunnel-through-iap --zone={zone}
-   ```
-
-2. generate SSH key
-   1. generate ssh key
+4. In VM Instance
+    - generate SSH key
       ```
       ssh-keygen
       ```
-   2. copy below command result to github setting
+    - copy below command result to github setting
       ```
       cat ~/.ssh/id_rsa.pub
       ```
-   3. register output to your git hub account.
-3. git clone
-   ```
-   git clone {clone_url}
-   ```
-4. docker build
-   1. change directory to docker
+    - register output to your git hub account.
+    - git clone
+       ```
+       git clone {clone_url}
+       ```
+    - [Install nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt)
+    - Install nvidia driver
       ```
-      cd {repository_name}/docker
+        sudo apt install ubuntu-drivers-common
+        ubuntu-drivers devices
+        sudo apt -y install nvidia-driver-{recommended version}
+        sudo reboot
       ```
-   2. docker build
+    - docker build
       ```
+      cd enefit-predict/docker
       docker compose up --build
       ```
+# 2. Start
+## 2-1. Start VM Instance
+1. If the VM Instance is not ready, start the VM Instance in GCP.
+## 2-2. Open Jupyter
+2. Open following link In your browser.
+   - http://{IP address}:8888/lab?token=kaggle-token
 
-# (every time)Set up
-1. opne your local terminal.
-2. SSH port forwarding
-   ```
-   gcloud compute ssh {instance_name} --tunnel-through-iap -N -f -L 8888:localhost:8888
-   ```
+# 3. Shutdown
+## 3-1. Shutdown VM Instance
+1. Stop the VM Instance in GCP.
+
+*************************************************************************************************************************
 
 # theme 1
 
