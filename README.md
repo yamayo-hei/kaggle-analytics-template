@@ -1,5 +1,6 @@
-## description
-The discription of this competition is [here](https://www.kaggle.com/competitions/{competition}/overview).
+# 0. Overview
+## description of this repository
+This template is to create kaggle env on GCP.
 
 ## Hardware
 - Google Cloud Platform
@@ -27,7 +28,6 @@ The discription of this competition is [here](https://www.kaggle.com/competition
 | ----------- | ------- |
 |  docker/docker-compose.yml  |  fix container name.(default is _kaggle_)  |
 |  docker/docker-compose.yml  |  fix token value.(default is _kaggle-token_)  |
-|  README.md  |  put a value in the `{competition}`.  |
 |  README.md  |  put a value in the `{clone_url}`.  |
 |  README.md  |  put a value in the `{repository_name}`.  |
 |  README.md  |  put a value in the `{instance_name}`.  |
@@ -74,7 +74,6 @@ The discription of this competition is [here](https://www.kaggle.com/competition
     - [Install nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt)
     - Install nvidia driver
       ```
-        sudo apt install ubuntu-drivers-common
         ubuntu-drivers devices
         sudo apt -y install nvidia-driver-{recommended version}
         sudo reboot
@@ -97,30 +96,7 @@ The discription of this competition is [here](https://www.kaggle.com/competition
 
 *************************************************************************************************************************
 
-# theme 1
-
-## Feature Engineering
-Please run the following notebooks in th ./feature
-- feature001_xxx.ipynb
-- feature002_xxx.ipynb
-- feature003_xxx.ipynb
-
-## Training
-Please run the following notebooks in th ./learn
-- learn001_xxx.ipynb
-- learn002_xxx.ipynb
-- learn003_xxx.ipynb
-
-# theme 2
-
-## Feature Engineering
-Please run the following notebooks in th ./feature
-- feature001_xxx.ipynb
-- feature002_xxx.ipynb
-- feature003_xxx.ipynb
-
-## Training
-Please run the following notebooks in th ./learn
-- learn001_xxx.ipynb
-- learn002_xxx.ipynb
-- learn003_xxx.ipynb
+# 4. Your work
+## 4-1. XXXXX
+## 4-2. XXXXX
+## 4-3. XXXXX
