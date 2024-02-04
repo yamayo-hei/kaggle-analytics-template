@@ -11,7 +11,7 @@ This template is to create kaggle env on GCP.
 *************************************************************************************************************************
 
 # 1. Set up 
-**※This is only first time**
+**※This step is only first time**
 
 ### 1-1. Advance preparation
 1. create a git repository from this repository template ([> How to create repository from template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template))
