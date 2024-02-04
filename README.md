@@ -78,9 +78,9 @@ This template is to create kaggle env on GCP.
         sudo apt -y install nvidia-driver-{recommended version}
         sudo reboot
       ```
-    - docker build
+    - docker build (take more than one hour)
       ```
-      cd enefit-predict/docker
+      cd {repository_name}/src
       docker compose up --build
       ```
 # 2. Start
