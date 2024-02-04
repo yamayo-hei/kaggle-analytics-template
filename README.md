@@ -19,7 +19,7 @@ This template is to create kaggle env on GCP.
 # 1. Set up 
 **※This is only first time**
 
-## 1-1. Advance preparation
+### 1-1. Advance preparation
 1. create a git repository from this repository template ([> How to create repository from template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template))
 2. clone to your local machine
 3. fix the following files
@@ -35,7 +35,7 @@ This template is to create kaggle env on GCP.
 
 4. Push to remote
 
-## 1-2. Set up GCP VM Instance
+### 1-2. Set up GCP VM Instance
 1. If not exists, create your GCP account.
 2. In GCP
     - create service account key and download private key(json file).
@@ -84,19 +84,19 @@ This template is to create kaggle env on GCP.
       docker compose up --build
       ```
 # 2. Start
-## 2-1. Start VM Instance
+### 2-1. Start VM Instance
 1. If the VM Instance is not ready, start the VM Instance in GCP.
-## 2-2. Open Jupyter
+### 2-2. Open Jupyter
 2. Open following link In your browser.
    - http://{IP address}:8888/lab?token=kaggle-token
 
 # 3. Shutdown
-## 3-1. Shutdown VM Instance
+### 3-1. Shutdown VM Instance
 1. Stop the VM Instance in GCP.
 
 *************************************************************************************************************************
 
 # 4. Your work
-## 4-1. XXXXX
-## 4-2. XXXXX
-## 4-3. XXXXX
+### 4-1. XXXXX
+### 4-2. XXXXX
+### 4-3. XXXXX
