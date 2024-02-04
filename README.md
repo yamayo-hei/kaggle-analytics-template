@@ -1,14 +1,8 @@
 # 0. Overview
-## description of this repository
+### description of this repository
 This template is to create kaggle env on GCP.
 
-## Hardware
-- Google Cloud Platform
-    - OS: **Ubuntu**
-    - GPU(default): **nvidia t4**
-    - machine type(default): **n1-standard-1**
-
-## required applications
+### required applications
 |  application  |  version  |  confirmation command  |
 | ----------- | ------- | ------- |
 |  gcloud SDK  |  >= 446.0.0  | gcloud --version |
