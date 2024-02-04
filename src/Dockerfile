@@ -9,6 +9,3 @@ RUN conda install -y -c conda-forge nodejs
 # tqdm
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
-# nvidia-smi
-sudo apt install ubuntu-drivers-common
-
